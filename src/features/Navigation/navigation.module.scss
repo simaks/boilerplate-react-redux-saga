@@ -1,0 +1,26 @@
+.navigation {
+  background: #eee;
+  padding: 5px 0;
+}
+
+.navigationList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.navigationListItem {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.navigationLink {
+  background: #ddd;
+  display: block;
+  padding: 5px 10px;
+
+  &.isActive {
+    background: #fff;
+  }
+}
