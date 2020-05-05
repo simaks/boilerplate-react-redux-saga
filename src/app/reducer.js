@@ -1,7 +1,7 @@
-import counterReducer from "features/Counter/slice";
+import counterSlice from "features/Counter/slice";
 
 const reducer = {
-  counter: counterReducer,
+  [counterSlice.name]: counterSlice.reducer,
 };
 
 export default reducer;

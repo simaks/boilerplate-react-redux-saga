@@ -38,4 +38,4 @@ export const {
 
 export const selectCount = (state) => state.counter.value;
 
-export default slice.reducer;
+export default slice;
