@@ -6,11 +6,15 @@ import {
   incrementByAmount,
   incrementAsync,
   selectCount,
+  selectPending,
+  selectError,
 } from "./slice";
 import styles from "./Counter.module.scss";
 
 function Counter() {
   const count = useSelector(selectCount);
+  const isPending = useSelector(selectPending);
+  const error = useSelector(selectError);
   const dispatch = useDispatch();
   const [incrementAmount, setIncrementAmount] = useState("2");
 
@@ -55,6 +59,23 @@ function Counter() {
         >
           Add Async
         </button>
+      </div>
+      <div className={styles.row}>
+        {!error && <p>To get an error try adding "0" asynchronously.</p>}
+        {error && <p className={styles.error}>{error}</p>}
+      </div>
+      <div className={styles.row}>
+        <code className={styles.debug}>
+          {JSON.stringify(
+            {
+              count,
+              isPending,
+              error,
+            },
+            null,
+            2
+          )}
+        </code>
       </div>
     </div>
   );

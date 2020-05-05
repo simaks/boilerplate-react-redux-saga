@@ -1,11 +1,19 @@
 import { put, takeLatest, all } from "redux-saga/effects";
-import { incrementAsync, incrementAsyncDone } from "./slice";
+import {
+  incrementAsync,
+  incrementAsyncError,
+  incrementAsyncSuccess,
+} from "./slice";
 
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
 function* incrementAsyncSaga({ payload }) {
   yield delay(1000);
-  yield put(incrementAsyncDone(payload));
+  if (!payload) {
+    yield put(incrementAsyncError("Asynchronously adding zero."));
+  } else {
+    yield put(incrementAsyncSuccess(payload));
+  }
 }
 
 function* watchIncrementAsync() {

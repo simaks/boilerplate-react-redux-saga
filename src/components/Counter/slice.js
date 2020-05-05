@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createSelector } from "@reduxjs/toolkit";
 
 export const slice = createSlice({
   name: "counter",
@@ -20,10 +20,13 @@ export const slice = createSlice({
     incrementAsync: (state) => {
       state.pending = true;
     },
-    incrementAsyncDone: (state, action) => {
+    incrementAsyncSuccess: (state, action) => {
       state.pending = false;
       state.value += action.payload;
       state.error = null;
+    },
+    incrementAsyncError: (state, action) => {
+      state.error = action.payload;
     },
   },
 });
@@ -33,9 +36,25 @@ export const {
   decrement,
   incrementByAmount,
   incrementAsync,
-  incrementAsyncDone,
+  incrementAsyncSuccess,
+  incrementAsyncError,
 } = slice.actions;
 
-export const selectCount = (state) => state[slice.name].value;
+export const selectCounter = (state) => state[slice.name];
+
+export const selectCount = createSelector(
+  [selectCounter],
+  (counter) => counter.value
+);
+
+export const selectPending = createSelector(
+  [selectCounter],
+  (counter) => counter.pending
+);
+
+export const selectError = createSelector(
+  [selectCounter],
+  (counter) => counter.error
+);
 
 export default slice;
