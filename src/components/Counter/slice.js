@@ -26,6 +26,7 @@ export const slice = createSlice({
       state.error = null;
     },
     incrementAsyncError: (state, action) => {
+      state.pending = false;
       state.error = action.payload;
     },
   },
