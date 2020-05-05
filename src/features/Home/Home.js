@@ -1,6 +1,7 @@
 import React from "react";
 import { ReactComponent as Logo } from "./logo.svg";
 import styles from "./Home.module.scss";
+import { Link } from "react-router-dom";
 
 function Home() {
   return (
@@ -8,7 +9,11 @@ function Home() {
       <header className={styles.AppHeader}>
         <Logo className={styles.AppLogo} />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Check out counter implemented with redux-saga{" "}
+          <Link to={"/counter"} className={styles.AppLink}>
+            here
+          </Link>
+          .
         </p>
         <a
           className={styles.AppLink}

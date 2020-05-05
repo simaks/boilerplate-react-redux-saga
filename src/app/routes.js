@@ -1,16 +1,16 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import indexPage from "pages";
-import counterPage from "pages/counter";
+import Home from "features/Home";
+import Counter from "features/Counter";
 
 export const routes = {
   home: {
     path: "/",
-    component: indexPage,
+    component: Home,
   },
   counter: {
     path: "/counter",
-    component: counterPage,
+    component: Counter,
   },
 };
 
