@@ -1,9 +1,8 @@
 import React from 'react';
 import { ReactComponent as Logo } from './logo.svg';
-import styles from './App.module.scss';
-import { Counter } from './features/counter/Counter'
+import styles from './Home.module.scss';
 
-function App() {
+function Home() {
   return (
     <div className={styles.App}>
       <header className={styles.AppHeader}>
@@ -20,11 +19,8 @@ function App() {
           Learn React
         </a>
       </header>
-      <main>
-        <Counter/>
-      </main>
     </div>
   );
 }
 
-export default App;
+export default Home;
