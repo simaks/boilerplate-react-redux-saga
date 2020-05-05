@@ -5,10 +5,8 @@ import {
   increment,
   incrementByAmount,
   incrementAsync,
-  selectCount,
-  selectPending,
-  selectError,
 } from "./slice";
+import { selectCount, selectPending, selectError } from "./selectors";
 import styles from "./Counter.module.scss";
 
 function Counter() {
@@ -62,7 +60,7 @@ function Counter() {
       </div>
       <div className={styles.row}>
         {!error && <p>To get an error try adding "0" asynchronously.</p>}
-        {error && <p className={styles.error}>{error}</p>}
+        {error && <p className={styles.error}>Error: "{error}"</p>}
       </div>
       <div className={styles.row}>
         <code className={styles.debug}>
