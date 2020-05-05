@@ -1,22 +1,18 @@
-import React from 'react'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from 'react-router-dom'
-import indexPage from 'pages'
-import counterPage from 'pages/counter'
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import indexPage from "pages";
+import counterPage from "pages/counter";
 
 export const routes = {
   home: {
-    path: '/',
-    component: indexPage
+    path: "/",
+    component: indexPage,
   },
   counter: {
-    path: '/counter',
-    component: counterPage
-  }
-}
+    path: "/counter",
+    component: counterPage,
+  },
+};
 
 function Routes() {
   return (
@@ -27,13 +23,12 @@ function Routes() {
             key={route.path}
             path={route.path}
             exact
-            render={props => (<route.component {...props} />)}
+            render={(props) => <route.component {...props} />}
           />
         ))}
       </Switch>
     </Router>
-  )
+  );
 }
 
 export default Routes;
-
