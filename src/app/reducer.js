@@ -1,7 +1,8 @@
-import counterSlice from "features/Counter/slice";
+import { combineReducers } from "@reduxjs/toolkit";
+import counterSlice from "components/Counter/slice";
 
-const reducer = {
+const reducer = combineReducers({
   [counterSlice.name]: counterSlice.reducer,
-};
+});
 
 export default reducer;

@@ -36,6 +36,6 @@ export const {
   incrementAsyncDone,
 } = slice.actions;
 
-export const selectCount = (state) => state.counter.value;
+export const selectCount = (state) => state[slice.name].value;
 
 export default slice;

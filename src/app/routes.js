@@ -1,9 +1,7 @@
-import React from "react";
-import { Switch, Route } from "react-router-dom";
-import Home from "features/Home";
-import Counter from "features/Counter";
+import Home from "components/Home";
+import Counter from "components/Counter";
 
-export const routes = {
+const routes = {
   home: {
     path: "/",
     component: Home,
@@ -14,19 +12,4 @@ export const routes = {
   },
 };
 
-function Routes() {
-  return (
-    <Switch>
-      {Object.values(routes).map((route) => (
-        <Route
-          key={route.path}
-          path={route.path}
-          exact
-          render={(props) => <route.component {...props} />}
-        />
-      ))}
-    </Switch>
-  );
-}
-
-export default Routes;
+export default routes;
