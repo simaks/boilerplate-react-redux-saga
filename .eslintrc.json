@@ -1,9 +1,14 @@
 {
   "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended",
     "react-app",
     "prettier"
   ],
   "plugins": [
+    "react",
+    "jsx-a11y",
     "prettier"
   ],
   "rules": {

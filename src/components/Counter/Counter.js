@@ -59,8 +59,10 @@ function Counter() {
         </button>
       </div>
       <div className={styles.row}>
-        {!error && <p>To get an error try adding "0" asynchronously.</p>}
-        {error && <p className={styles.error}>Error: "{error}"</p>}
+        {!error && (
+          <p>To get an error try adding &quot;0&quot; asynchronously.</p>
+        )}
+        {error && <p className={styles.error}>Error: &quot;{error}&quot;</p>}
       </div>
       <div className={styles.row}>
         <code className={styles.debug}>
