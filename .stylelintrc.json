@@ -9,13 +9,26 @@
     "stylelint-prettier"
   ],
   "rules": {
-    "sh-waqar/declaration-use-variable": [[
-      "/color/",
-      "font-size",
-      "font-family",
-      "z-index"
-    ]],
+    "sh-waqar/declaration-use-variable": [
+      [
+        "/color/",
+        "font-size",
+        "font-family",
+        "z-index"
+      ]
+    ],
     "selector-class-pattern": "[a-zA-Z0-9]+",
+    "declaration-block-no-duplicate-properties": [
+      true,
+      {
+        "ignore": [
+          "consecutive-duplicates-with-different-values"
+        ]
+      }
+    ],
+    "no-descending-specificity": true,
+    "no-duplicate-at-import-rules": true,
+    "no-duplicate-selectors": true,
     "prettier/prettier": true
   }
 }
