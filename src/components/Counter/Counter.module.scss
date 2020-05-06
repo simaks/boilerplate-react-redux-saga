@@ -49,14 +49,6 @@ $font-size-debug: 12px;
   }
 }
 
-.textbox {
-  font-size: $font-size-big;
-  margin-right: 8px;
-  padding: 2px;
-  text-align: center;
-  width: 64px;
-}
-
 .asyncButton {
   composes: button;
   margin-left: 8px;
@@ -80,6 +72,14 @@ $font-size-debug: 12px;
     transition: 0s;
     width: 0%;
   }
+}
+
+.textbox {
+  font-size: $font-size-big;
+  margin-right: 8px;
+  padding: 2px;
+  text-align: center;
+  width: 64px;
 }
 
 .error {
