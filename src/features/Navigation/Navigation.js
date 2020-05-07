@@ -4,42 +4,35 @@ import styles from "./navigation.module.scss";
 import { useSelector } from "react-redux";
 import { selectCount } from "features/Counter/selectors";
 
-const NAV_ITEMS = {
-  home: {
-    link: "/",
-    text: "Home",
-  },
-  counter: {
-    link: "/counter",
-    text: "Counter",
-  },
-};
-
 function Navigation() {
   const count = useSelector(selectCount);
+
+  const NAV_ITEMS = {
+    home: {
+      link: "/",
+      text: "Home",
+    },
+    counter: {
+      link: "/counter",
+      text: `Counter (${count})`,
+    },
+  };
+
   return (
     <nav className={styles.navigation}>
       <ul className={styles.navigationList}>
-        <li className={styles.navigationListItem}>
-          <NavLink
-            className={styles.navigationLink}
-            activeClassName={styles.isActive}
-            to={NAV_ITEMS.home.link}
-            exact
-          >
-            {NAV_ITEMS.home.text}
-          </NavLink>
-        </li>
-        <li className={styles.navigationListItem}>
-          <NavLink
-            className={styles.navigationLink}
-            activeClassName={styles.isActive}
-            to={NAV_ITEMS.counter.link}
-            exact
-          >
-            {`${NAV_ITEMS.counter.text} (${count})`}
-          </NavLink>
-        </li>
+        {Object.entries(NAV_ITEMS).map(([key, { link, text }]) => (
+          <li key={key} className={styles.navigationListItem}>
+            <NavLink
+              className={styles.navigationLink}
+              activeClassName={styles.isActive}
+              to={link}
+              exact
+            >
+              {text}
+            </NavLink>
+          </li>
+        ))}
       </ul>
     </nav>
   );
