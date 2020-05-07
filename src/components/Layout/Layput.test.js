@@ -3,7 +3,7 @@ import { render } from "@testing-library/react";
 import Layout from "./Layout";
 import { BrowserRouter } from "react-router-dom";
 
-test("renders learn react link", () => {
+test("renders child component", () => {
   const { getByText, getByRole } = render(
     <BrowserRouter>
       <Layout>layout content</Layout>

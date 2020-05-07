@@ -3,7 +3,7 @@ import { render } from "@testing-library/react";
 import Navigation from "./Navigation";
 import { BrowserRouter } from "react-router-dom";
 
-test("renders learn react link", () => {
+test("renders all the links in navigation", () => {
   const { getAllByRole } = render(
     <BrowserRouter>
       <Navigation />
