@@ -1,19 +1,18 @@
 import React from "react";
-import styles from "./not-found-page.module.scss";
+import styles from "./loading-page.module.scss";
 import { useLocation } from "react-router-dom";
 
-function NotFoundPage() {
+function LoadingPage() {
   const location = useLocation();
   const currentPath = location.pathname;
 
   return (
     <h2 className={styles.title}>
-      Page not found &quot;{currentPath}&quot;{" "}
-      <span role="img" aria-label="Sad face.">
-        😟
+      <span role="img" aria-label={`Loading page "${currentPath}".`}>
+        ⏳
       </span>
     </h2>
   );
 }
 
-export default NotFoundPage;
+export default LoadingPage;

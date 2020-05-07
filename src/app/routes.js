@@ -1,14 +1,11 @@
-import Home from "components/Home";
-import Counter from "components/Counter";
-
 const routes = {
   home: {
     path: "/",
-    component: Home,
+    getComponent: () => import("features/Home"),
   },
   counter: {
     path: "/counter",
-    component: Counter,
+    getComponent: () => import("features/Counter"),
   },
 };
 

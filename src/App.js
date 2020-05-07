@@ -1,23 +1,29 @@
 import Layout from "./features/Layout";
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import routes from "./app/routes";
 import { Switch, Route } from "react-router-dom";
 import NotFoundPage from "./features/NotFoundPage";
+import LoadingPage from "./features/LoadingPage";
 
 function App() {
   return (
     <Layout>
-      <Switch>
-        {Object.values(routes).map((route) => (
-          <Route
-            key={route.path}
-            path={route.path}
-            exact
-            render={(props) => <route.component {...props} />}
-          />
-        ))}
-        <Route path={"/"} render={(props) => <NotFoundPage {...props} />} />
-      </Switch>
+      <Suspense fallback={<LoadingPage />}>
+        <Switch>
+          {Object.values(routes).map(({ path, getComponent }) => {
+            const LazyRouteComponent = lazy(getComponent);
+            return (
+              <Route
+                key={path}
+                path={path}
+                exact
+                component={LazyRouteComponent}
+              />
+            );
+          })}
+          <Route path={"/"} component={NotFoundPage} />
+        </Switch>
+      </Suspense>
     </Layout>
   );
 }
