@@ -12,6 +12,7 @@
     "sh-waqar/declaration-use-variable": [
       [
         "/color/",
+        "fill",
         "font-size",
         "font-family",
         "z-index"

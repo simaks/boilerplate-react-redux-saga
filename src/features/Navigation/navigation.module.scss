@@ -26,7 +26,13 @@
 .logoSvg {
   display: block;
   height: 30px;
+  transition-duration: 250ms;
+  transition-property: fill;
   width: 30px;
+
+  &:hover {
+    fill: $color-white;
+  }
 }
 
 .navigationMenu {

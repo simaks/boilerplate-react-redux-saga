@@ -1,17 +1,20 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { useIntl } from "react-intl";
 import { ReactComponent as Logo } from "assets/logo.svg";
 import { selectLocale } from "features/LanguageProvider/selectors";
 import { SUPPORTED_LOCALES } from "features/LanguageProvider/constants";
 import { setLocale } from "features/LanguageProvider/slice";
 import { selectCount } from "features/CounterPage/selectors";
 import styles from "./navigation.module.scss";
+import messages from "./messages";
 
 function Navigation() {
   const count = useSelector(selectCount);
   const locale = useSelector(selectLocale);
   const dispatch = useDispatch();
+  const intl = useIntl();
   const handleLocaleChange = ({ target: { value } }) => {
     dispatch(setLocale(value));
   };
@@ -19,11 +22,11 @@ function Navigation() {
   const NAV_ITEMS = {
     counter: {
       link: "/counter",
-      text: `Counter (${count})`,
+      text: intl.formatMessage(messages.linkCounter, { count }),
     },
     intlDemo: {
       link: "/intl-demo",
-      text: "Intl demo",
+      text: intl.formatMessage(messages.linkIntl),
     },
   };
 

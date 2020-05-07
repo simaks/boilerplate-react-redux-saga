@@ -7,3 +7,8 @@ export const selectLocale = createSelector(
   [selectLocaleSlice],
   (localeSlice) => localeSlice.locale
 );
+
+export const selectMessages = createSelector(
+  [selectLocaleSlice],
+  (localeSlice) => localeSlice.messages
+);
