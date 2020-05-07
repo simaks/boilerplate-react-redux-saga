@@ -1,7 +1,6 @@
 import React from "react";
-import PropTypes from "prop-types";
-
-import Navigation from "../Navigation";
+import { childrenShape } from "app/shapes";
+import Navigation from "features/Navigation";
 
 function Layout({ children }) {
   return (
@@ -13,10 +12,7 @@ function Layout({ children }) {
 }
 
 Layout.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]).isRequired,
+  children: childrenShape,
 };
 
 export default Layout;

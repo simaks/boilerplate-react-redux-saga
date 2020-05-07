@@ -1,16 +1,43 @@
+@import '../../style/tools';
+
 .navigation {
+  align-items: center;
   background: #eee;
+  display: flex;
   padding: 5px 0;
 }
 
-.navigationList {
+.logoLink {
+  background: $color-dark-hero;
+  border-radius: 50%;
+  box-sizing: border-box;
+  display: block;
+  flex: 0 0 auto;
+  margin: 0 10px;
+  text-decoration: none;
+  transition-duration: 250ms;
+  transition-property: background;
+
+  &:hover {
+    background: darken($color-dark-hero, 50%);
+  }
+}
+
+.logoSvg {
+  display: block;
+  height: 30px;
+  width: 30px;
+}
+
+.navigationMenu {
+  flex: 1 1 auto;
   list-style: none;
   margin: 0;
   padding: 0;
   text-align: center;
 }
 
-.navigationListItem {
+.navigationMenuItem {
   display: inline-block;
   margin: 0 5px;
 }
@@ -23,4 +50,9 @@
   &.isActive {
     background: #fff;
   }
+}
+
+.languageMenu {
+  flex: 0 0 auto;
+  padding: 0 10px;
 }

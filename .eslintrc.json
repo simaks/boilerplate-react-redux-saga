@@ -9,9 +9,14 @@
   "plugins": [
     "react",
     "jsx-a11y",
+    "formatjs",
     "prettier"
   ],
   "rules": {
+    "formatjs/no-offset": "error",
+    "formatjs/enforce-default-message": "error",
+    "formatjs/enforce-placeholders": "error",
+    "formatjs/no-multiple-whitespaces": "warn",
     "prettier/prettier": "error"
   }
 }

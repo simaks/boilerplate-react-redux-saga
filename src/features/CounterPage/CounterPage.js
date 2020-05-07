@@ -7,9 +7,9 @@ import {
   incrementAsync,
 } from "./slice";
 import { selectCount, selectPending, selectError } from "./selectors";
-import styles from "./counter.module.scss";
+import styles from "./counter-page.module.scss";
 
-function Counter() {
+function CounterPage() {
   const count = useSelector(selectCount);
   const isPending = useSelector(selectPending);
   const error = useSelector(selectError);
@@ -81,4 +81,4 @@ function Counter() {
   );
 }
 
-export default Counter;
+export default CounterPage;

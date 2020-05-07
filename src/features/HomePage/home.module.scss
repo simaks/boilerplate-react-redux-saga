@@ -1,6 +1,5 @@
 @import '../../style/tools';
 
-$color-header-bg: #282c34;
 $color-header: #fff;
 $font-size-header: calc(10px + 2vmin);
 $color-app-link: #61dafb;
@@ -22,7 +21,7 @@ $color-app-link: #61dafb;
 
 .AppHeader {
   align-items: center;
-  background-color: $color-header-bg;
+  background-color: $color-dark-hero;
   color: $color-header;
   display: flex;
   flex-direction: column;
