@@ -1,9 +1,8 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
-import clsx from "clsx";
+import { NavLink } from "react-router-dom";
 import styles from "./navigation.module.scss";
 import { useSelector } from "react-redux";
-import { selectCount } from "../Counter/selectors";
+import { selectCount } from "features/Counter/selectors";
 
 const NAV_ITEMS = {
   home: {
@@ -17,32 +16,29 @@ const NAV_ITEMS = {
 };
 
 function Navigation() {
-  const location = useLocation();
   const count = useSelector(selectCount);
-  const currentPath = location.pathname;
-  const getIsActive = (item) => item.link === currentPath;
   return (
     <nav className={styles.navigation}>
       <ul className={styles.navigationList}>
         <li className={styles.navigationListItem}>
-          <Link
-            className={clsx(styles.navigationLink, {
-              [styles.isActive]: getIsActive(NAV_ITEMS.home),
-            })}
+          <NavLink
+            className={styles.navigationLink}
+            activeClassName={styles.isActive}
             to={NAV_ITEMS.home.link}
+            exact
           >
             {NAV_ITEMS.home.text}
-          </Link>
+          </NavLink>
         </li>
         <li className={styles.navigationListItem}>
-          <Link
-            className={clsx(styles.navigationLink, {
-              [styles.isActive]: getIsActive(NAV_ITEMS.counter),
-            })}
+          <NavLink
+            className={styles.navigationLink}
+            activeClassName={styles.isActive}
             to={NAV_ITEMS.counter.link}
+            exact
           >
             {`${NAV_ITEMS.counter.text} (${count})`}
-          </Link>
+          </NavLink>
         </li>
       </ul>
     </nav>
