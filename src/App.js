@@ -1,7 +1,8 @@
-import Layout from "./components/Layout";
+import Layout from "./features/Layout";
 import React from "react";
 import routes from "./app/routes";
 import { Switch, Route } from "react-router-dom";
+import NotFoundPage from "./features/NotFoundPage";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
             render={(props) => <route.component {...props} />}
           />
         ))}
+        <Route path={"/"} render={(props) => <NotFoundPage {...props} />} />
       </Switch>
     </Layout>
   );

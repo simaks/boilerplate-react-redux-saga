@@ -1,6 +1,6 @@
 import React from "react";
 import { ReactComponent as Logo } from "./logo.svg";
-import styles from "./Home.module.scss";
+import styles from "./home.module.scss";
 import { Link } from "react-router-dom";
 
 function Home() {
