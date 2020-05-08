@@ -5,20 +5,25 @@ import { useDispatch, useSelector } from "react-redux";
 import LoadingPage from "features/LoadingPage";
 import { DEFAULT_LOCALE } from "./constants";
 import { loadMessages } from "./slice";
-import { selectLocale, selectMessages } from "./selectors";
+import {
+  selectLocale,
+  selectLocaleMessages,
+  selectLocaleError,
+} from "./selectors";
 
 function LanguageProvider({ children }) {
   const locale = useSelector(selectLocale);
   const dispatch = useDispatch();
-  const allMessages = useSelector(selectMessages);
-  const messages = allMessages[locale]?.messages;
-  const loading = allMessages[locale]?.loading ?? true;
+  const messages = useSelector(selectLocaleMessages);
+  const error = useSelector(selectLocaleError);
 
   useEffect(() => {
-    dispatch(loadMessages(locale));
-  }, [dispatch, locale]);
+    if (!messages) {
+      dispatch(loadMessages(locale));
+    }
+  }, [locale, messages, dispatch]);
 
-  if (loading) {
+  if (!messages && !error) {
     return <LoadingPage />;
   }
 
