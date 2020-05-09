@@ -21,6 +21,11 @@
   &:hover {
     background: darken($color-dark-hero, 50%);
   }
+
+  &.isActive,
+  &:active {
+    background: transparent;
+  }
 }
 
 .logoSvg {

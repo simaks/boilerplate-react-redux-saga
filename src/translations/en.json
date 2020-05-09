@@ -8,6 +8,9 @@
   "features.counterPage.error": "Error: \"{error}\"",
   "features.homePage.checkOutCounter": "Check out counter implemented with redux-saga <a>here</a>.",
   "features.homePage.learnReact": "Learn React",
+  "features.navigation.linkHome": "Home",
   "features.navigation.linkCounter": "Counter ({count})",
-  "features.navigation.linkIntl": "Intl demo"
+  "features.navigation.linkIntl": "Intl demo",
+  "features.navigation.langEn": "English",
+  "features.navigation.langLt": "Lietuvių"
 }

@@ -32,7 +32,13 @@ function Navigation() {
 
   return (
     <nav className={styles.navigation}>
-      <NavLink exact to="/" className={styles.logoLink}>
+      <NavLink
+        exact
+        to="/"
+        className={styles.logoLink}
+        activeClassName={styles.isActive}
+        title={intl.formatMessage(messages.linkHome)}
+      >
         <Logo className={styles.logoSvg} />
       </NavLink>
       <ul className={styles.navigationMenu}>
@@ -52,9 +58,14 @@ function Navigation() {
       <div className={styles.languageMenu}>
         {/* eslint-disable jsx-a11y/no-onchange */}
         <select value={locale} onChange={handleLocaleChange}>
-          {Object.entries(SUPPORTED_LOCALES).map(([key, currentLocale]) => (
-            <option key={key}>{currentLocale}</option>
-          ))}
+          {Object.entries(SUPPORTED_LOCALES).map(([key, loc]) => {
+            const messageKey = `lang${loc[0].toUpperCase()}${loc.substring(1)}`;
+            return (
+              <option key={key} value={loc} lang={loc}>
+                {intl.formatMessage(messages[messageKey])}
+              </option>
+            );
+          })}
         </select>
       </div>
     </nav>

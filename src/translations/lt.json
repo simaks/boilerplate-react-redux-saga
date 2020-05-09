@@ -2,12 +2,15 @@
   "features.counterPage.plus": "Didinti reikšmę",
   "features.counterPage.minus": "Mažinti reikšmę",
   "features.counterPage.setIncrementAmount": "Įvesti pridedamą skaičių",
-  "features.counterPage.addAmount": "Pridėti skaičių",
-  "features.counterPage.addAsync": "Pridėti asinchroniškai",
+  "features.counterPage.addAmount": "Pridėti Skaičių",
+  "features.counterPage.addAsync": "Pridėti Asin.",
   "features.counterPage.errorTip": "Norėdami gauti klaidą, pamėginkite pridėti \"0\" asinchroniškai.",
   "features.counterPage.error": "Klaida: \"{error}\"",
   "features.homePage.checkOutCounter": "Pamatykite skaitiklį su \"redux-saga\" panaudojimu <a>čia</a>.",
   "features.homePage.learnReact": "Išmokti React",
+  "features.navigation.linkHome": "Pradžia",
   "features.navigation.linkCounter": "Skaitiklis ({count})",
-  "features.navigation.linkIntl": "Intl demonstracija"
+  "features.navigation.linkIntl": "Intl demonstracija",
+  "features.navigation.langEn": "English",
+  "features.navigation.langLt": "Lietuvių"
 }
