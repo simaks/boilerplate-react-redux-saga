@@ -1,12 +1,13 @@
+import { defineMessages } from "react-intl";
 const scope = "features.navigation.";
 
-export default {
+export default defineMessages({
   linkCounter: {
-    id: `${scope}link_counter`,
+    id: `${scope}linkCounter`,
     defaultMessage: "Counter ({count})",
   },
   linkIntl: {
-    id: `${scope}link_intl`,
+    id: `${scope}linkIntl`,
     defaultMessage: "Intl demo",
   },
-};
+});
