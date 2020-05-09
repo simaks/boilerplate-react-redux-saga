@@ -3,6 +3,9 @@ const exec = require("child_process").exec;
 const { SUPPORTED_LOCALES, DEFAULT_LOCALE } = require("./locales");
 
 exec("formatjs extract src/**/messages.js", (error, stdout, stderr) => {
+  if (stderr) {
+    throw stderr;
+  }
   const defaultMessages = JSON.parse(stdout).reduce(
     (allMessages, translation) => {
       const { id, defaultMessage } = translation;

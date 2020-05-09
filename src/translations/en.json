@@ -1,4 +1,11 @@
 {
+  "features.counterPage.plus": "Increment value",
+  "features.counterPage.minus": "Decrement value",
+  "features.counterPage.setIncrementAmount": "Set increment amount",
+  "features.counterPage.addAmount": "Add Amount",
+  "features.counterPage.addAsync": "Add Async",
+  "features.counterPage.errorTip": "To get an error try adding \"0\" asynchronously.",
+  "features.counterPage.error": "Error: \"{error}\"",
   "features.navigation.linkCounter": "Counter ({count})",
   "features.navigation.linkIntl": "Intl demo"
 }

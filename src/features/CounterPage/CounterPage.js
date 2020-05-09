@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useIntl } from "react-intl";
 import { useSelector, useDispatch } from "react-redux";
 import {
   decrement,
@@ -8,9 +9,11 @@ import {
 } from "./slice";
 import { selectCount, selectPending, selectError } from "./selectors";
 import styles from "./counter-page.module.scss";
+import messages from "./messages";
 
 function CounterPage() {
   const count = useSelector(selectCount);
+  const intl = useIntl();
   const isPending = useSelector(selectPending);
   const error = useSelector(selectError);
   const dispatch = useDispatch();
@@ -21,7 +24,7 @@ function CounterPage() {
       <div className={styles.row}>
         <button
           className={styles.button}
-          aria-label="Increment value"
+          aria-label={intl.formatMessage(messages.plus)}
           onClick={() => dispatch(increment())}
         >
           +
@@ -29,7 +32,7 @@ function CounterPage() {
         <span className={styles.value}>{count}</span>
         <button
           className={styles.button}
-          aria-label="Decrement value"
+          aria-label={intl.formatMessage(messages.minus)}
           onClick={() => dispatch(decrement())}
         >
           -
@@ -38,7 +41,7 @@ function CounterPage() {
       <div className={styles.row}>
         <input
           className={styles.textbox}
-          aria-label="Set increment amount"
+          aria-label={intl.formatMessage(messages.setIncrementAmount)}
           type="number"
           value={incrementAmount}
           onChange={(e) => setIncrementAmount(e.target.value)}
@@ -49,20 +52,22 @@ function CounterPage() {
             dispatch(incrementByAmount(Number(incrementAmount) || 0))
           }
         >
-          Add Amount
+          {intl.formatMessage(messages.addAmount)}
         </button>
         <button
           className={styles.asyncButton}
           onClick={() => dispatch(incrementAsync(Number(incrementAmount) || 0))}
         >
-          Add Async
+          {intl.formatMessage(messages.addAsync)}
         </button>
       </div>
       <div className={styles.row}>
-        {!error && (
-          <p>To get an error try adding &quot;0&quot; asynchronously.</p>
+        {!error && <p>{intl.formatMessage(messages.errorTip)}</p>}
+        {error && (
+          <p className={styles.error}>
+            {intl.formatMessage(messages.error, { error })}
+          </p>
         )}
-        {error && <p className={styles.error}>Error: &quot;{error}&quot;</p>}
       </div>
       <div className={styles.row}>
         <code className={styles.debug}>

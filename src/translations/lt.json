@@ -1,4 +1,11 @@
 {
+  "features.counterPage.plus": "Didinti reikšmę",
+  "features.counterPage.minus": "Mažinti reikšmę",
+  "features.counterPage.setIncrementAmount": "Įvesti pridedamą skaičių",
+  "features.counterPage.addAmount": "Pridėti skaičių",
+  "features.counterPage.addAsync": "Pridėti asinchroniškai",
+  "features.counterPage.errorTip": "Norėdami gauti klaidą, pamėginkite pridėti \"0\" asinchroniškai.",
+  "features.counterPage.error": "Klaida: \"{error}\"",
   "features.navigation.linkCounter": "Skaitiklis ({count})",
   "features.navigation.linkIntl": "Intl demonstracija"
 }
