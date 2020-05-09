@@ -32,6 +32,7 @@ function LanguageProvider({ children }) {
       locale={locale}
       defaultLocale={DEFAULT_LOCALE}
       messages={messages}
+      wrapRichTextChunksInFragment
     >
       {children}
     </IntlProvider>

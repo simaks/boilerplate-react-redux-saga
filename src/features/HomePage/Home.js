@@ -1,19 +1,25 @@
 import React from "react";
+import { useIntl } from "react-intl";
+import { Link } from "react-router-dom";
 import { ReactComponent as Logo } from "assets/logo.svg";
 import styles from "./home.module.scss";
-import { Link } from "react-router-dom";
+import messages from "./messages";
 
 function Home() {
+  const intl = useIntl();
   return (
     <div className={styles.App}>
       <header className={styles.AppHeader}>
         <Logo className={styles.AppLogo} />
         <p>
-          Check out counter implemented with redux-saga{" "}
-          <Link to={"/counter"} className={styles.AppLink}>
-            here
-          </Link>
-          .
+          {intl.formatMessage(messages.checkOutCounter, {
+            // eslint-disable-next-line react/display-name
+            a: (...chunks) => (
+              <Link to={"/counter"} className={styles.AppLink}>
+                {chunks}
+              </Link>
+            ),
+          })}
         </p>
         <a
           className={styles.AppLink}
@@ -21,7 +27,7 @@ function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          {intl.formatMessage(messages.learnReact)}
         </a>
       </header>
     </div>

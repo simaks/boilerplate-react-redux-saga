@@ -9,6 +9,12 @@
       "options": {
         "singleQuote": true
       }
+    },
+    {
+      "files": ["messages.js"],
+      "options": {
+        "printWidth": 1000
+      }
     }
   ]
 }

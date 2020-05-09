@@ -6,6 +6,8 @@
   "features.counterPage.addAsync": "Add Async",
   "features.counterPage.errorTip": "To get an error try adding \"0\" asynchronously.",
   "features.counterPage.error": "Error: \"{error}\"",
+  "features.homePage.checkOutCounter": "Check out counter implemented with redux-saga <a>here</a>.",
+  "features.homePage.learnReact": "Learn React",
   "features.navigation.linkCounter": "Counter ({count})",
   "features.navigation.linkIntl": "Intl demo"
 }

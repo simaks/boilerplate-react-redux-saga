@@ -6,6 +6,8 @@
   "features.counterPage.addAsync": "Pridėti asinchroniškai",
   "features.counterPage.errorTip": "Norėdami gauti klaidą, pamėginkite pridėti \"0\" asinchroniškai.",
   "features.counterPage.error": "Klaida: \"{error}\"",
+  "features.homePage.checkOutCounter": "Pamatykite skaitiklį su \"redux-saga\" panaudojimu <a>čia</a>.",
+  "features.homePage.learnReact": "Išmokti React",
   "features.navigation.linkCounter": "Skaitiklis ({count})",
   "features.navigation.linkIntl": "Intl demonstracija"
 }
