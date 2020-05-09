@@ -18,6 +18,10 @@ function LanguageProvider({ children }) {
   const error = useSelector(selectLocaleError);
 
   useEffect(() => {
+    window.document.documentElement.lang = locale;
+  }, [locale]);
+
+  useEffect(() => {
     if (!messages) {
       dispatch(loadMessages(locale));
     }
