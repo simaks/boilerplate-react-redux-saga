@@ -8,11 +8,21 @@ import {
   loadMessagesSuccess,
   loadMessagesError,
 } from "./slice";
-import { DEFAULT_LOCALE, LOCAL_STORAGE_KEY } from "./constants";
+import {
+  DEFAULT_LOCALE,
+  SUPPORTED_LOCALES,
+  LOCAL_STORAGE_KEY,
+} from "./constants";
 
 function* initLocaleSaga() {
   try {
-    const locale = localStorage.getItem(LOCAL_STORAGE_KEY) ?? DEFAULT_LOCALE;
+    let locale = localStorage.getItem(LOCAL_STORAGE_KEY);
+    if (locale && !Object.values(SUPPORTED_LOCALES).includes(locale)) {
+      localStorage.removeItem(LOCAL_STORAGE_KEY); // Remove invalid value from storage
+    }
+    if (!locale) {
+      locale = DEFAULT_LOCALE;
+    }
     yield put(initLocaleSuccess(locale));
   } catch (error) {
     yield put(initLocaleError(error.message));
