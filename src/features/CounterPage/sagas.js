@@ -1,4 +1,4 @@
-import { put, takeLatest, all } from "redux-saga/effects";
+import { put, takeLatest } from "redux-saga/effects";
 import {
   incrementAsync,
   incrementAsyncError,
@@ -16,10 +16,6 @@ function* incrementAsyncSaga({ payload }) {
   }
 }
 
-function* watchIncrementAsync() {
-  yield takeLatest(incrementAsync.type, incrementAsyncSaga);
-}
-
 export default function* counterSagas() {
-  yield all([watchIncrementAsync()]);
+  yield takeLatest(incrementAsync.type, incrementAsyncSaga);
 }

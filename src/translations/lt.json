@@ -10,7 +10,5 @@
   "features.homePage.learnReact": "Išmokti React",
   "features.navigation.linkHome": "Pradžia",
   "features.navigation.linkCounter": "Skaitiklis ({count})",
-  "features.navigation.linkIntl": "Intl demonstracija",
-  "features.navigation.langEn": "English",
-  "features.navigation.langLt": "Lietuvių"
+  "features.navigation.linkIntl": "Intl demonstracija"
 }

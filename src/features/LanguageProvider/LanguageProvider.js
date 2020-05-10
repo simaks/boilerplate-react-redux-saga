@@ -4,30 +4,41 @@ import { childrenShape } from "app/shapes";
 import { useDispatch, useSelector } from "react-redux";
 import LoadingPage from "features/LoadingPage";
 import { DEFAULT_LOCALE } from "./constants";
-import { loadMessages } from "./slice";
+import { initLocale, loadMessages } from "./slice";
 import {
   selectLocale,
+  selectLocaleInitialising,
   selectLocaleMessages,
   selectLocaleError,
 } from "./selectors";
 
 function LanguageProvider({ children }) {
   const locale = useSelector(selectLocale);
+  const localeInitialising = useSelector(selectLocaleInitialising);
   const dispatch = useDispatch();
   const messages = useSelector(selectLocaleMessages);
   const error = useSelector(selectLocaleError);
+  const needInit = !locale && !localeInitialising;
 
   useEffect(() => {
-    window.document.documentElement.lang = locale;
-  }, [locale]);
+    if (needInit) {
+      dispatch(initLocale());
+    }
+  });
 
   useEffect(() => {
-    if (!messages) {
+    if (!needInit) {
+      window.document.documentElement.lang = locale;
+    }
+  }, [locale, needInit]);
+
+  useEffect(() => {
+    if (!needInit && !messages) {
       dispatch(loadMessages(locale));
     }
-  }, [locale, messages, dispatch]);
+  }, [needInit, locale, messages, dispatch]);
 
-  if (!messages && !error) {
+  if (needInit || (!messages && !error)) {
     return <LoadingPage />;
   }
 

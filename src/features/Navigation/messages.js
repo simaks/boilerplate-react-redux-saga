@@ -14,12 +14,4 @@ export default defineMessages({
     id: `${scope}linkIntl`,
     defaultMessage: "Intl demo",
   },
-  langEn: {
-    id: `${scope}langEn`,
-    defaultMessage: "English",
-  },
-  langLt: {
-    id: `${scope}langLt`,
-    defaultMessage: "Lithuanian",
-  },
 });

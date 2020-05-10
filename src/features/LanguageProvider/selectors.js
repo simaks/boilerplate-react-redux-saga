@@ -6,12 +6,17 @@ export const selectLocaleSlice = (state) => state[slice.name];
 
 export const selectLocale = createSelector(
   [selectLocaleSlice],
-  (localeSlice) => localeSlice.locale
+  (slice) => slice.locale
+);
+
+export const selectLocaleInitialising = createSelector(
+  [selectLocaleSlice],
+  (slice) => slice.initialising
 );
 
 export const selectDefaultData = createSelector(
   [selectLocaleSlice],
-  (localeSlice) => localeSlice.data[DEFAULT_LOCALE]
+  (slice) => slice.data[DEFAULT_LOCALE]
 );
 
 export const selectDefaultMessages = createSelector(
@@ -21,7 +26,7 @@ export const selectDefaultMessages = createSelector(
 
 export const selectActiveData = createSelector(
   [selectLocaleSlice, selectLocale],
-  (localeSlice, locale) => localeSlice.data[locale]
+  (slice, locale) => slice.data[locale]
 );
 
 export const selectLocaleMessages = createSelector(

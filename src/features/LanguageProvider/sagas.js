@@ -1,5 +1,32 @@
 import { put, takeLatest, all } from "redux-saga/effects";
-import { loadMessages, loadMessagesSuccess, loadMessagesError } from "./slice";
+import {
+  initLocale,
+  initLocaleSuccess,
+  initLocaleError,
+  setLocale,
+  loadMessages,
+  loadMessagesSuccess,
+  loadMessagesError,
+} from "./slice";
+import { DEFAULT_LOCALE, LOCAL_STORAGE_KEY } from "./constants";
+
+function* initLocaleSaga() {
+  try {
+    const locale = localStorage.getItem(LOCAL_STORAGE_KEY) ?? DEFAULT_LOCALE;
+    yield put(initLocaleSuccess(locale));
+  } catch (error) {
+    yield put(initLocaleError(error.message));
+  }
+}
+
+// eslint-disable-next-line require-yield
+function* setLocaleSaga({ payload: locale }) {
+  try {
+    localStorage.setItem(LOCAL_STORAGE_KEY, locale);
+  } catch (error) {
+    console.error(error);
+  }
+}
 
 function* loadMessagesSaga({ payload: locale }) {
   try {
@@ -10,10 +37,10 @@ function* loadMessagesSaga({ payload: locale }) {
   }
 }
 
-function* watchLoadMessages() {
-  yield takeLatest(loadMessages.type, loadMessagesSaga);
-}
-
 export default function* messagesSagas() {
-  yield all([watchLoadMessages()]);
+  yield all([
+    yield takeLatest(initLocale.type, initLocaleSaga),
+    yield takeLatest(setLocale.type, setLocaleSaga),
+    yield takeLatest(loadMessages.type, loadMessagesSaga),
+  ]);
 }

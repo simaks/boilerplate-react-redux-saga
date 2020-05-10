@@ -10,7 +10,5 @@
   "features.homePage.learnReact": "Learn React",
   "features.navigation.linkHome": "Home",
   "features.navigation.linkCounter": "Counter ({count})",
-  "features.navigation.linkIntl": "Intl demo",
-  "features.navigation.langEn": "English",
-  "features.navigation.langLt": "Lietuvių"
+  "features.navigation.linkIntl": "Intl demo"
 }

@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useIntl } from "react-intl";
 import { ReactComponent as Logo } from "assets/logo.svg";
-import { selectLocale } from "features/LanguageProvider/selectors";
 import { SUPPORTED_LOCALES } from "features/LanguageProvider/constants";
 import { setLocale } from "features/LanguageProvider/slice";
 import { selectCount } from "features/CounterPage/selectors";
@@ -12,7 +11,6 @@ import messages from "./messages";
 
 function Navigation() {
   const count = useSelector(selectCount);
-  const locale = useSelector(selectLocale);
   const dispatch = useDispatch();
   const intl = useIntl();
   const handleLocaleChange = ({ target: { value } }) => {
@@ -57,12 +55,14 @@ function Navigation() {
       </ul>
       <div className={styles.languageMenu}>
         {/* eslint-disable jsx-a11y/no-onchange */}
-        <select value={locale} onChange={handleLocaleChange}>
+        <select value={intl.locale} onChange={handleLocaleChange}>
           {Object.entries(SUPPORTED_LOCALES).map(([key, loc]) => {
-            const messageKey = `lang${loc[0].toUpperCase()}${loc.substring(1)}`;
             return (
               <option key={key} value={loc} lang={loc}>
-                {intl.formatMessage(messages[messageKey])}
+                {intl.formatDisplayName(loc, {
+                  type: "language",
+                  locale: "de",
+                })}
               </option>
             );
           })}

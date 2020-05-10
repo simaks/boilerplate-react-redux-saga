@@ -1,10 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { DEFAULT_LOCALE, SUPPORTED_LOCALES } from "./constants";
+import { SUPPORTED_LOCALES } from "./constants";
 
 export const slice = createSlice({
   name: "languageProvider",
   initialState: {
-    locale: DEFAULT_LOCALE,
+    locale: null,
+    initialising: false,
+    initError: null,
     data: Object.values(SUPPORTED_LOCALES).reduce((data, locale) => {
       data[locale] = {
         loading: false,
@@ -15,6 +17,18 @@ export const slice = createSlice({
     }, {}),
   },
   reducers: {
+    initLocale: (state) => {
+      state.initialising = true;
+    },
+    initLocaleSuccess: (state, action) => {
+      state.locale = action.payload;
+      state.initialising = false;
+      state.initError = null;
+    },
+    initLocaleError: (state, action) => {
+      state.initialising = false;
+      state.initError = action.payload;
+    },
     setLocale: (state, action) => {
       state.locale = action.payload;
     },
@@ -37,6 +51,9 @@ export const slice = createSlice({
 });
 
 export const {
+  initLocale,
+  initLocaleSuccess,
+  initLocaleError,
   setLocale,
   loadMessages,
   loadMessagesSuccess,

@@ -40,6 +40,22 @@ exec("formatjs extract src/**/messages.js", (error, stdout, stderr) => {
     let localeMessages;
     try {
       localeMessages = JSON.parse(fs.readFileSync(translationFile, "utf8"));
+      localeMessages = Object.entries(localeMessages).reduce(
+        (messages, [id, translation]) => {
+          if (defaultMessages[id]) {
+            messages[id] = translation; // Only keep existing messages
+          } else {
+            console.log(
+              `Removing ${JSON.stringify({
+                id,
+                translation,
+              })} from "${translationFile}"`
+            );
+          }
+          return messages;
+        },
+        {}
+      );
     } catch (e) {
       if (e.code === "ENOENT") {
         console.log(`Creating file "${translationFile}"...`);
