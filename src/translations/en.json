@@ -10,5 +10,14 @@
   "features.homePage.learnReact": "Learn React",
   "features.navigation.linkHome": "Home",
   "features.navigation.linkCounter": "Counter ({count})",
-  "features.navigation.linkIntl": "Intl demo"
+  "features.navigation.linkIntl": "Intl demo",
+  "features.navigation.linkNpm": "API demo",
+  "features.npmRegistryPage.inputPackage": "Package",
+  "features.npmRegistryPage.buttonSearch": "Search",
+  "features.npmRegistryPage.loading": "Loading...",
+  "features.npmRegistryPage.name": "Name",
+  "features.npmRegistryPage.description": "Description",
+  "features.npmRegistryPage.keywords": "Keywords",
+  "features.npmRegistryPage.homepage": "Homepage",
+  "features.npmRegistryPage.creationDate": "Creation date"
 }

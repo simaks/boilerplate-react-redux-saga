@@ -1,0 +1,21 @@
+.container {
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 100%;
+  padding: 20px;
+  width: 800px;
+}
+
+.box {
+  border: 1px solid;
+  padding: 20px;
+}
+
+.form {
+  composes: box;
+}
+
+.result {
+  composes: box;
+  margin-top: 20px;
+}

@@ -10,5 +10,14 @@
   "features.homePage.learnReact": "Išmokti React",
   "features.navigation.linkHome": "Pradžia",
   "features.navigation.linkCounter": "Skaitiklis ({count})",
-  "features.navigation.linkIntl": "Intl demonstracija"
+  "features.navigation.linkIntl": "Intl demo",
+  "features.navigation.linkNpm": "API demo",
+  "features.npmRegistryPage.inputPackage": "Paketas",
+  "features.npmRegistryPage.buttonSearch": "Ieškoti",
+  "features.npmRegistryPage.loading": "Kraunama...",
+  "features.npmRegistryPage.name": "Vardas",
+  "features.npmRegistryPage.description": "Aprašymas",
+  "features.npmRegistryPage.keywords": "Raktažodžiai",
+  "features.npmRegistryPage.homepage": "Pagrindinis puslapis",
+  "features.npmRegistryPage.creationDate": "Sukūrimo data"
 }

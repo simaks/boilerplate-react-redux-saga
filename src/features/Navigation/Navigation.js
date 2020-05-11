@@ -26,6 +26,10 @@ function Navigation() {
       link: "/intl-demo",
       text: intl.formatMessage(messages.linkIntl),
     },
+    npmApi: {
+      link: "/npm-api",
+      text: intl.formatMessage(messages.linkNpm),
+    },
   };
 
   return (
@@ -46,7 +50,6 @@ function Navigation() {
               className={styles.navigationLink}
               activeClassName={styles.isActive}
               to={link}
-              exact
             >
               {text}
             </NavLink>

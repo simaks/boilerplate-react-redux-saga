@@ -14,4 +14,8 @@ export default defineMessages({
     id: `${scope}linkIntl`,
     defaultMessage: "Intl demo",
   },
+  linkNpm: {
+    id: `${scope}linkNpm`,
+    defaultMessage: "Api demo",
+  },
 });
