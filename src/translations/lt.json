@@ -15,7 +15,7 @@
   "features.npmRegistryPage.inputPackage": "Paketas",
   "features.npmRegistryPage.buttonSearch": "Ieškoti",
   "features.npmRegistryPage.loading": "Kraunama...",
-  "features.npmRegistryPage.name": "Vardas",
+  "features.npmRegistryPage.name": "Pavadinimas",
   "features.npmRegistryPage.description": "Aprašymas",
   "features.npmRegistryPage.keywords": "Raktažodžiai",
   "features.npmRegistryPage.homepage": "Pagrindinis puslapis",

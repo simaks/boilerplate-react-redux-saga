@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useIntl } from "react-intl";
+import routes from "app/routes";
 import { ReactComponent as Logo } from "assets/logo.svg";
 import { SUPPORTED_LOCALES } from "features/LanguageProvider/constants";
 import { setLocale } from "features/LanguageProvider/slice";
@@ -19,15 +20,11 @@ function Navigation() {
 
   const NAV_ITEMS = {
     counter: {
-      link: "/counter",
+      link: routes.counter.path,
       text: intl.formatMessage(messages.linkCounter, { count }),
     },
-    intlDemo: {
-      link: "/intl-demo",
-      text: intl.formatMessage(messages.linkIntl),
-    },
     npmApi: {
-      link: "/npm-api",
+      link: routes.npmApi.path,
       text: intl.formatMessage(messages.linkNpm),
     },
   };
@@ -36,7 +33,7 @@ function Navigation() {
     <nav className={styles.navigation}>
       <NavLink
         exact
-        to="/"
+        to={routes.home.path}
         className={styles.logoLink}
         activeClassName={styles.isActive}
         title={intl.formatMessage(messages.linkHome)}
@@ -61,10 +58,9 @@ function Navigation() {
         <select value={intl.locale} onChange={handleLocaleChange}>
           {Object.entries(SUPPORTED_LOCALES).map(([key, loc]) => {
             return (
-              <option key={key} value={loc} lang={loc}>
+              <option key={key} value={loc} lang={intl.locale}>
                 {intl.formatDisplayName(loc, {
                   type: "language",
-                  locale: "de",
                 })}
               </option>
             );

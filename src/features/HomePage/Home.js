@@ -1,6 +1,7 @@
 import React from "react";
 import { useIntl } from "react-intl";
 import { Link } from "react-router-dom";
+import routes from "app/routes";
 import { ReactComponent as Logo } from "assets/logo.svg";
 import styles from "./home.module.scss";
 import messages from "./messages";
@@ -15,7 +16,7 @@ function Home() {
           {intl.formatMessage(messages.checkOutCounter, {
             // eslint-disable-next-line react/display-name
             a: (...chunks) => (
-              <Link to={"/counter"} className={styles.AppLink}>
+              <Link to={routes.counter.path} className={styles.AppLink}>
                 {chunks}
               </Link>
             ),
