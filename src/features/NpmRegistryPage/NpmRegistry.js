@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useIntl } from "react-intl";
-import { useParams, useHistory } from "react-router-dom";
+import { FormattedMessage, useIntl } from "react-intl";
+import { useParams, useHistory, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import routes from "app/routes";
 import { loadPackageDetails } from "./slice";
@@ -34,9 +34,11 @@ function NpmRegistry() {
   const handleChange = ({ target: { value } }) => {
     setSearch(value);
   };
+
   return (
     <div className={styles.container}>
       <form onSubmit={handleSubmit} className={styles.form}>
+        <h2>{intl.formatMessage(messages.searchForPackage)}</h2>
         <label htmlFor="package-id-input">
           {intl.formatMessage(messages.inputPackage)}
         </label>
@@ -46,6 +48,31 @@ function NpmRegistry() {
           onChange={handleChange}
           value={search}
         />
+        <p>
+          <FormattedMessage
+            id={messages.examplePackages.id}
+            defaultMessage={messages.examplePackages.defaultMessage}
+            values={{
+              example: ["react", "yarn", "redux", "redux-saga"].reduce(
+                (acc, ex, index) => {
+                  if (index > 0) {
+                    acc.push(", ");
+                  }
+                  acc.push(
+                    <Link
+                      key={ex}
+                      to={routes.npmApiPackage.path.replace(":package", ex)}
+                    >
+                      {ex}
+                    </Link>
+                  );
+                  return acc;
+                },
+                []
+              ),
+            }}
+          />
+        </p>
         <button type="submit">
           {intl.formatMessage(messages.buttonSearch)}
         </button>
@@ -73,7 +100,7 @@ function NpmRegistry() {
 
           <dt>{intl.formatMessage(messages.creationDate)}</dt>
           <dd>
-            {intl.formatDate(data.time?.created, {
+            {intl.formatDate(data.creationTime, {
               year: "numeric",
               month: "long",
               day: "numeric",

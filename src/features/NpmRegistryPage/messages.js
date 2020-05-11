@@ -2,9 +2,17 @@ import { defineMessages } from "react-intl";
 const scope = "features.npmRegistryPage.";
 
 export default defineMessages({
+  searchForPackage: {
+    id: `${scope}searchForPackage`,
+    defaultMessage: "Npm registry search",
+  },
   inputPackage: {
     id: `${scope}inputPackage`,
     defaultMessage: "Package",
+  },
+  examplePackages: {
+    id: `${scope}examplePackages`,
+    defaultMessage: "e.g. {example}",
   },
   buttonSearch: {
     id: `${scope}buttonSearch`,
