@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { SUPPORTED_LOCALES } from "./constants";
 
-export const slice = createSlice({
+const slice = createSlice({
   name: "languageProvider",
   initialState: {
     locale: null,

@@ -10,9 +10,10 @@ import {
   SUPPORTED_LOCALES,
 } from "app/../../tools/intl/locales";
 import enMessages from "translations/en.json";
-import defaultStore from "app/store";
+import { getStore } from "app/store";
 import "@formatjs/intl-displaynames";
 
+/* istanbul ignore next */
 function polyfillIntl() {
   const locales = Object.values(SUPPORTED_LOCALES);
   if (global.Intl) {
@@ -56,7 +57,7 @@ polyfillIntl();
 function render(
   ui,
   {
-    store = defaultStore,
+    store = getStore(),
     locale = DEFAULT_LOCALE,
     messages = enMessages,
     ...renderOptions

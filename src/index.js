@@ -3,8 +3,10 @@ import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import "./index.scss";
-import store from "./app/store";
+import { getStore } from "./app/store";
 import * as serviceWorker from "./serviceWorker";
+
+const store = getStore();
 
 const render = () => {
   const App = require("./App").default;

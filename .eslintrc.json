@@ -13,6 +13,8 @@
     "prettier"
   ],
   "rules": {
+    "react/display-name": "warn",
+    "jsx-a11y/no-onchange": "warn",
     "formatjs/no-offset": "error",
     "formatjs/enforce-default-message": "error",
     "formatjs/enforce-placeholders": "error",

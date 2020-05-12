@@ -7,7 +7,7 @@ import {
 
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
-function* incrementAsyncSaga({ payload }) {
+export function* incrementAsyncSaga({ payload }) {
   yield delay(1000);
   if (!payload) {
     yield put(incrementAsyncError("Asynchronously adding zero."));

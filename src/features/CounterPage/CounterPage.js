@@ -29,7 +29,9 @@ function CounterPage() {
         >
           +
         </button>
-        <span className={styles.value}>{count}</span>
+        <span className={styles.value} data-testid="counter-value">
+          {count}
+        </span>
         <button
           className={styles.button}
           aria-label={intl.formatMessage(messages.minus)}
