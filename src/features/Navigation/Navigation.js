@@ -1,12 +1,13 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { useIntl } from "react-intl";
+import { IntlProvider, useIntl } from "react-intl";
 import routes from "app/routes";
 import { ReactComponent as Logo } from "assets/logo.svg";
 import { SUPPORTED_LOCALES } from "features/LanguageProvider/constants";
 import { setLocale } from "features/LanguageProvider/slice";
 import { selectCount } from "features/CounterPage/selectors";
+import LanguageOption from "features/LanguageOption";
 import styles from "./navigation.module.scss";
 import messages from "./messages";
 
@@ -58,11 +59,9 @@ function Navigation() {
         <select value={intl.locale} onChange={handleLocaleChange}>
           {Object.entries(SUPPORTED_LOCALES).map(([key, loc]) => {
             return (
-              <option key={key} value={loc} lang={intl.locale}>
-                {intl.formatDisplayName(loc, {
-                  type: "language",
-                })}
-              </option>
+              <IntlProvider key={loc} locale={loc}>
+                <LanguageOption locale={loc} />
+              </IntlProvider>
             );
           })}
         </select>
