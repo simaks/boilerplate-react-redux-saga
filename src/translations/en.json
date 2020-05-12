@@ -11,7 +11,7 @@
   "features.navigation.linkHome": "Home",
   "features.navigation.linkCounter": "Counter ({count})",
   "features.navigation.linkIntl": "Intl demo",
-  "features.navigation.linkNpm": "Api demo",
+  "features.navigation.linkNpm": "API demo",
   "features.npmRegistryPage.searchForPackage": "Npm registry search",
   "features.npmRegistryPage.inputPackage": "Package",
   "features.npmRegistryPage.examplePackages": "e.g. {example}",

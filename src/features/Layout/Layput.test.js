@@ -1,14 +1,9 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render } from "utils/test-utils";
 import Layout from "./Layout";
-import { BrowserRouter } from "react-router-dom";
 
 test("renders child component", () => {
-  const { getByText, getByRole } = render(
-    <BrowserRouter>
-      <Layout>layout content</Layout>
-    </BrowserRouter>
-  );
+  const { getByText, getByRole } = render(<Layout>layout content</Layout>);
   const children = getByText(/layout content/i);
   const nav = getByRole("navigation");
   expect(children).toBeInTheDocument();
