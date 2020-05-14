@@ -17,6 +17,7 @@
   "features.npmRegistryPage.examplePackages": "e.g. {example}",
   "features.npmRegistryPage.buttonSearch": "Search",
   "features.npmRegistryPage.loading": "Loading...",
+  "features.npmRegistryPage.error": "Error: \"{error}\"",
   "features.npmRegistryPage.name": "Name",
   "features.npmRegistryPage.description": "Description",
   "features.npmRegistryPage.keywords": "Keywords",

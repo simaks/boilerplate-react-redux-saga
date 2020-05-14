@@ -22,6 +22,10 @@ export default defineMessages({
     id: `${scope}loading`,
     defaultMessage: "Loading...",
   },
+  error: {
+    id: `${scope}error`,
+    defaultMessage: 'Error: "{error}"',
+  },
   name: {
     id: `${scope}name`,
     defaultMessage: "Name",

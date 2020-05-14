@@ -17,6 +17,7 @@
   "features.npmRegistryPage.examplePackages": "pvz.: {example}",
   "features.npmRegistryPage.buttonSearch": "Ieškoti",
   "features.npmRegistryPage.loading": "Kraunama...",
+  "features.npmRegistryPage.error": "Klaida: \"{error}\"",
   "features.npmRegistryPage.name": "Pavadinimas",
   "features.npmRegistryPage.description": "Aprašymas",
   "features.npmRegistryPage.keywords": "Raktažodžiai",

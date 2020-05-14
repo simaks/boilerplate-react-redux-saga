@@ -79,7 +79,7 @@ function NpmRegistry() {
       </form>
 
       {loading && intl.formatMessage(messages.loading)}
-      {error && intl.formatMessage(messages.loading, { error })}
+      {!loading && error && intl.formatMessage(messages.error, { error })}
       {data && (
         <dl className={styles.result}>
           <dt>{intl.formatMessage(messages.name)}</dt>
