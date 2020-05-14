@@ -58,15 +58,15 @@ exec("formatjs extract src/**/messages.js", (error, stdout, stderr) => {
       );
     } catch (e) {
       if (e.code === "ENOENT") {
-        console.log(`Creating file "${translationFile}"...`);
+        console.log(`File "${translationFile}" not found.`);
       } else {
         console.error(`Failed reading file "${translationFile}".`);
         console.error(e);
       }
-      return;
     }
 
     try {
+      console.log(`Creating file "${translationFile}"...`);
       fs.writeFileSync(
         translationFile,
         `${JSON.stringify({ ...emptyMessages, ...localeMessages }, null, 2)}\n`
