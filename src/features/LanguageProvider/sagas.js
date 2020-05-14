@@ -1,4 +1,4 @@
-import { put, takeLatest, all } from "redux-saga/effects";
+import { put, takeLatest, takeEvery, all } from "redux-saga/effects";
 import {
   initLocale,
   initLocaleSuccess,
@@ -51,6 +51,6 @@ export default function* messagesSagas() {
   yield all([
     yield takeLatest(initLocale.type, initLocaleSaga),
     yield takeLatest(setLocale.type, setLocaleSaga),
-    yield takeLatest(loadMessages.type, loadMessagesSaga),
+    yield takeEvery(loadMessages.type, loadMessagesSaga),
   ]);
 }
